@@ -1,0 +1,1319 @@
+﻿<usermanual>
+						
+									GRE THREAT CONDITION
+SCRIPT INFO
+
+This is an online version of the Forbes Lab GRE CONTROL condition task.
+
+											  *Task*
+15 GRE questions and follow up math questionnaire with a female evaluator.
+
+DATA FILE INFORMATION: 
+The default data stored in the data files are:
+
+(1) Raw data file: 
+
+date, time, group, subject:		date and time script was run with the current group/subjectnumber 
+build:							the Inquisit build 
+
+all raw answers for each question
+math thoughts output
+raw questionnaire answers
+manipulation checks
+
+
+
+QUESTIONNAIRE SET-UP
+15-question multiple-choice GRE HARD questions
+Note: by default, all questions require a response. To change, go to section QUESTIONS
+and follow instructions
+
+INSTRUCTIONS
+instructions appear on the screen, students advance with a spacebar press
+
+EDITABLE CODE:
+check under EDITABLE CODE below for (relatively) easily editable parameters, stimuli, instructions etc. 
+Keep in mind that you can use this script as a template and therefore always "mess" with the entire code to further customize your experiment.
+
+The parameters you can change are:
+
+/pageinstructions:			the instructions that appear at the top of each surveypage
+
+
+</usermanual>
+
+**************************************************************************************************************
+**************************************************************************************************************
+	EDITABLE PARAMETERS: change editable parameters here
+**************************************************************************************************************
+**************************************************************************************************************
+
+<parameters>
+/pageinstructions = "QUANTITATIVE EXAMINATION CTA #478B"
+</parameters>
+
+
+**************************************************************************************************************
+								!!!REMAINING CODE: Customize after careful consideration only!!!
+**************************************************************************************************************
+
+
+**************************************************************************************************************
+**************************************************************************************************************
+	DEFAULTS
+**************************************************************************************************************
+**************************************************************************************************************
+script requires Inquisit 5.0.0.0 or higher
+
+<defaults>
+/canvasaspectratio = (4,3)
+/minimumversion = "5.0.0.0"
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/txbgcolor = white
+/ txcolor = black
+</defaults>
+
+*******************************************************************************************************************
+*******************************************************************************************************************
+	DATA: this section contains data file information
+*******************************************************************************************************************
+*******************************************************************************************************************
+
+********************
+Summary data
+********************
+
+<summarydata>
+/columns = (script.startdate, script.starttime, script.subjectid, script.groupid, script.elapsedtime, computer.platform, values.completed, 
+expressions.q1, expressions.q2, expressions.q3, expressions.q4, expressions.q5, expressions.q6, expressions.q7,
+expressions.q8, expressions.q9, expressions.q10, expressions.q11, expressions.q12, expressions.q13, expressions.q14,
+expressions.q15)
+/ separatefiles = true
+</summarydata>
+
+*******************************************************************************************************************
+*******************************************************************************************************************
+	VALUES
+*******************************************************************************************************************
+*******************************************************************************************************************
+/completed:						0 = script was not completed; 1 = script was completed (all conditions run)
+
+<values>
+/completed = 0
+</values>
+
+
+*******************************************************************************************************************
+*******************************************************************************************************************
+	EXPRESSIONS
+*******************************************************************************************************************
+*******************************************************************************************************************
+/q1-
+/q21:				the numeric score (minus the letter suffix) for each question
+
+/totalscore_BDI:	the sum of all numeric scores (range 0-63)
+/assessment:		According to: http://en.wikipedia.org/wiki/Beck_Depression_Inventory
+					0–9: indicates minimal depression;
+					10–18: indicates mild depression;
+					19–29: indicates moderate depression; 
+					0–63: indicates severe depression. 
+					Higher total scores indicate more severe depressive symptoms.
+
+
+<expressions>
+/q1 = substring(radiobuttons.q1_GRE1.response, 0, 1)
+/q2 = substring(radiobuttons.q2_GRE2.response, 0, 1)
+/q3 = substring(radiobuttons.q3_GRE3.response, 0, 1)
+/q4 = substring(radiobuttons.q4_GRE4.response, 0, 1)
+/q5 = substring(radiobuttons.q5_GRE5.response, 0, 1)
+/q6 = substring(radiobuttons.q6_GRE6.response, 0, 1)
+/q7 = substring(radiobuttons.q7_GRE7.response, 0, 1)
+/q8 = substring(radiobuttons.q8_GRE8.response, 0, 1)
+/q9 = substring(radiobuttons.q9_GRE9.response, 0, 1)
+/q10 = substring(radiobuttons.q10_GRE10.response, 0, 1)
+/q11 = substring(radiobuttons.q11_GRE11.response, 0, 1)
+/q12 = substring(radiobuttons.q12_GRE12.response, 0, 1)
+/q13 = substring(radiobuttons.q13_GRE13.response, 0, 1)
+/q14 = substring(radiobuttons.q14_GRE14.response, 0, 1)
+/q15 = substring(radiobuttons.q15_GRE15.response, 0, 1)
+</expressions>
+
+
+********
+instructions
+********
+<text spacebar>
+/ items = ("Press the SPACE BAR to continue")
+/ position = (50%, 95%)
+/ valign = bottom
+</text>
+
+<item manip1>
+/ 1 = "At this point you have completed all the cogntive measures and learning tasks. Now we will tell you a little more about what we are truly investigating today. 
+For the last several years we have been developing diagnostic measures of intelligence, and math intelligence specifically. Some of the measures we use are similar to standardized tests such as the SAT and GRE while others are still under development. The primary goal of today’s session is to measure your math ability by having you take an experimental math test and then seeing how well your performance on that test relates to your scores on the previous cognitive tasks you performed. " 
+</item>
+
+<text manip1>
+/ items = manip1
+/ hjustify = center
+/ size = (90%, 60%)
+/ position = (50%, 85%)
+/ valign = bottom
+/ select = sequence
+</text>
+
+<trial manip1>
+/ stimulustimes = [1=manip1, spacebar]
+/ correctresponse = (" ")
+/ errormessage = false
+/ correctmessage = false
+/ recorddata = false
+</trial>
+
+
+<item intro>
+/ 1 = "While performing on this exam you will NOT BE allowed to use a calculator. You will also be evaluated by one of our researchers who is connected over video monitoring software. He can see the answers you input (in addition to questions you don't respond to) so he can score your exam in real time. Unanswered questions will be marked as incorrect. Please make sure you have a strong wifi connection to minimize live feed buffering. The page will refresh after each response to maintain the signal. Press the spacebar to see your evaluator. " 
+</item>
+
+<text intro>
+/ items = intro
+/ hjustify = center
+/ size = (90%, 60%)
+/ position = (50%, 85%)
+/ valign = bottom
+/ select = sequence
+</text>
+
+<trial intro>
+/ stimulustimes = [1=intro, spacebar]
+/ correctresponse = (" ")
+/ errormessage = false
+/ correctmessage = false
+/ recorddata = false
+</trial>
+
+<item intro2>
+/ 1 = "Instructions:
+
+
+There are 15 questions in this exam. You will have only 90 seconds to complete each question. For each question, there will be five possible answers in a multiple choice format. For each question, mark the circle at the left that corresponds to the correct answer.
+
+
+Your performance on this test will be based on the total number of questions you answer correctly. You should attempt to answer as many questions as possible in the time allotted but avoid random guessing. Your evaluator will be working continuously throughout your exam. Once you input your answer it will be visible on his screen. He will then compare your answer with the scoring sheet and grade your exam in real time.
+
+
+Please press continue when you are ready to begin the math test and remember no calculators are allowed.
+
+" 
+</item>
+
+<text intro2>
+/ items = intro2
+/ hjustify = center
+/ size = (90%, 60%)
+/ position = (50%, 85%)
+/ valign = bottom
+/ select = sequence
+</text>
+
+<trial intro2>
+/ stimulustimes = [1=intro2, spacebar]
+/ correctresponse = (" ")
+/ errormessage = false
+/ correctmessage = false
+/ recorddata = false
+</trial>
+
+<item intro3>
+/ 1 = "QUANTITATIVE EXAMINATION
+CTA #478B
+
+
+
+
+
+
+BEGIN THE EXAM WHEN YOU HAVE SCRATCH PAPER AND SOMETHING TO WRITE WITH.
+CALCULATORS ARE NOT ALLOWED.
+
+" 
+</item>
+
+<text intro3>
+/ items = intro3
+/ hjustify = center
+/ size = (90%, 60%)
+/ position = (50%, 85%)
+/ valign = bottom
+/ select = sequence
+</text>
+
+<trial intro3>
+/ stimulustimes = [1=intro3, spacebar]
+/ correctresponse = (" ")
+/ errormessage = false
+/ correctmessage = false
+/ recorddata = false
+</trial>
+
+<item ENDBREAK>
+/ 1 = "That concludes the math exam.  Please take a couple of moments to answer the following questions." 
+</item>
+
+<text ENDBREAK>
+/ items = ENDBREAK
+/ hjustify = center
+/ size = (90%, 60%)
+/ position = (50%, 85%)
+/ valign = bottom
+/ select = sequence
+</text>
+
+<trial ENDBREAK>
+/ stimulustimes = [1=ENDBREAK, spacebar]
+/ correctresponse = (" ")
+/ errormessage = false
+/ correctmessage = false
+/ recorddata = false
+</trial>
+
+<item cont>
+/ 1 = "Please continue on to complete the last set of questionnaires." 
+</item>
+
+<text cont>
+/ items = cont
+/ hjustify = center
+/ size = (90%, 60%)
+/ position = (50%, 85%)
+/ valign = bottom
+/ select = sequence
+</text>
+
+<trial cont>
+/ stimulustimes = [1=cont, spacebar]
+/ correctresponse = (" ")
+/ errormessage = false
+/ correctmessage = false
+/ recorddata = false
+</trial>
+*******************************************************************************************************************
+videos
+*******************************************************************************************************************
+<video MaleFeedback>
+/ items = ("malefeedback1.mp4","malefeedback2.mp4","maleevalfinal4.mp4","maleevalfinal5.mp4","maleevalfinal6.mp4","malefeedback3.mp4",
+"malefeedback4.mp4","malefeedback5.mp4","malefeedback6.mp4","malefeedback7.mp4","malefeedback8.mp4","malefeedback9.mp4","malefeedback10.mp4")
+/ playthrough = true
+/ position=(100%,10%)
+/ size = (20%,20%)
+</video>
+
+<video MaleStart>
+/ items = ("malefirst.mp4")
+/ playthrough = true
+/ position=(100%,10%)
+/ size = (20%,20%)
+</video>
+
+<video MaleWelcome>
+/ items = ("Malewelcome.mp4")
+/ playthrough = true
+/ position=(100%,10%)
+/ size = (20%,20%)
+</video>
+
+
+*******************************************************************************************************************
+*******************************************************************************************************************
+	QUESTIONS
+*******************************************************************************************************************
+*******************************************************************************************************************
+Note: by default all questions are required to be answered. To change
+/required = false
+
+<item Maththoughts>
+/ 1 = "Please take a few moments to list all of the thoughts you experienced during the math intelligence task. This could include feelings, thoughts of past similar experiences, or even things occurring in your life right now. Please be specific.
+" 
+</item>
+
+<text Maththoughts>
+/ items = Maththoughts
+/ hjustify = center
+/ size = (90%, 60%)
+/ position = (50%, 85%)
+/ valign = bottom
+/ select = sequence
+</text>
+
+<item surveytransition>
+/ 1 = "For the following items, rate how you are feeling RIGHT NOW by clicking on a number on the scale."
+</item>
+
+<text surveytransition>
+/ items = surveytransition
+/ hjustify = center
+/ size = (90%, 60%)
+/ position = (50%, 85%)
+/ valign = bottom
+/ select = sequence
+</text>
+
+<trial surveytransition>
+/ stimulustimes = [1=surveytransition, spacebar]
+/ correctresponse = (" ")
+/ errormessage = false
+/ correctmessage = false
+/ recorddata = false
+</trial>
+
+
+<openended Maththoughts>
+/ stimulusframes=[1=Maththoughts]
+/ position = (50, 90)
+/ charlimit = 500
+/ numlines = 10
+</openended>
+
+<radiobuttons evap1>
+/caption = "I am concerned that the evaluator will think I have less ability if I did not do well on this exam."
+/ options = ("Strongly Disagree","Moderately Disagree", "Disagree", "Neither Agree or Disagree", "Agree", "Moderately Agree", "Strongly Agree")
+/ optionvalues = ("0", "1", "2", "3","4","5","6")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons evap2>
+/caption = "I am concerned that the evaluator will judge me based on my performance on the exam."
+/ options = ("Strongly Disagree","Moderately Disagree", "Disagree", "Neither Agree or Disagree", "Agree", "Moderately Agree", "Strongly Agree")
+/ optionvalues = ("0", "1", "2", "3","4","5","6")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+
+
+<radiobuttons calc>
+/caption = "I agree to not use a calculator during this exam."
+/ options = ("I agree","I disagree")
+/ optionvalues = ("0", "1")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons gender>
+/caption = "1. Please mark your gender"
+/ options = ("Male","Female")
+/ optionvalues = ("0", "1")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons q1_GRE1>
+/caption = "1. Cecilia leaves home for school on her bike at 9:05am, riding at an average speed of 10mph.  Fifteen minutes later, her mother realizes that Cecilia forgot to take her lunch.  Cecilia's mother immediately gets into her car and drives after Cecilia at an average speed of 25mph.  At what time will Cecilia's mom catch up to her?"
+/ options = ("9:15am", 
+"9:18am", 
+"9:20am", 
+"9:26am", 
+"9:30am")
+/ optionvalues = ("0", "1", "2", "3", "4")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons q2_GRE2>
+/caption = "2. A sporting goods store ordered an equal number of white and yellow tennis balls. The tennis ball company delivered 30 extra white balls, making the ratio of white balls to yellow balls 6:5.  How many tennis balls did the store originally order?"
+/ options = ("120", 
+"150", 
+"240", 
+"300", 
+"320")
+/ optionvalues = ("0", "1", "2", "3", "4")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons q3_GRE3>
+/caption = "3. The average gas mileage for n vehicles on one car lot is 21 miles per gallon(mpg). The average gas milage for p vehicles on another car lot is 25mpg. When the vehicles on both lots are combined, the average gas mileage is 22.5mpg.  What is the value of p/n?"
+/ options = ("3/8", 
+"1/2", 
+"4/5", 
+"3/5", 
+"1")
+/ optionvalues = ("0", "1", "2", "3", "4")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons q4_GRE4>
+/caption = "4. Five numbers are given by the expressions, x, 2x-3, 2x+1, 3x-4, and 3x+1. If the average of these numbers is 10, what is the mode of the numbers?"
+/ options = ("8", 
+"10", 
+"11",
+"12", 
+"not enough information to determine the mode")
+/ optionvalues = ("0", "1", "2", "3", "4")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons q5_GRE5>
+/caption = "5. An oil tank has two pipes connected to it. If the tank is empty, Pipe A can fill it in 2 hours. If the tank is full, Pipe B can empty it in 3 hours. If both pipes are activated at the same time when the tank is empty, how many hours will it take for the tank to be filled to 60% capacity?"
+/ options = ("2.4", 
+"3.6", 
+"4", 
+"6", 
+"60")
+/ optionvalues = ("0", "1", "2", "3", "4")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons q6_GRE6>
+/caption = "6. A bike messenger delivers a package from the courthouse to a law firm downtown, traveling at an average speed of 24mph.  On the way back, the bike messenger gets stuck in traffic, which reduces his average speed for the return trip by 12.5 percent. What was the bike messenger's average speed, in mph, for the round trip?"
+/ options = ("22", 
+"22.1", 
+"22.4", 
+"22.5", 
+"22.6")
+/ optionvalues = ("0", "1", "2", "3", "4")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons q7_GRE7>
+/caption = "7. When water is heated in a closed system, the vapor pressure increases slowly at first and then more rapidly.  As the water reaches the boiling point of 100 degrees celcius, the vapor pressure reaches 1 atm. Which of the following models best describes the increase in vapor pressure as water is heated to its boiling point?"
+/ options = ("Linear", 
+"Quadratic", 
+"Polynomial", 
+"Exponential", 
+"Logarithmic")
+/ optionvalues = ("0", "1", "2", "3", "4")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons q8_GRE8>
+/caption = "8. Damien is throwing darts. He has a total of 6 darts to throw. He gets 5 points for each dart that lands in a blue ring and 10 points for each dart that lands in a red ring. If x of his darts land in a blue ring and the rest land in a red ring, which expression represents his total score?"
+/ options = ("10x", 
+"10x+5", 
+"15x+5", 
+"5x+30", 
+"60-5x")
+/ optionvalues = ("0", "1", "2", "3","4")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons q9_GRE9>
+/caption = "9. A landscaper buys a new commercial grade lawn mower that costs $2,800. Based on past experience, he expects it to last about 8 years, and then he can sell it for scrap metal with a value of $240. Assuming the value of the lawn mower depreciates at a constant rate, which equation could be used to find it's approximate value after x years, given that x<8?"
+/ options = ("y=-8x+2,560", 
+"y=-240x+2,800", 
+"y=-320x+2,800", 
+"y=240x-2,560",
+"y=-240x-2,560")
+/ optionvalues = ("0", "1", "2", "3", "4")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons q10_GRE10>
+/caption = "10. What was the initial amount of gasoline in a fuel trailer, in gallons, if there are now x gallons, y gallons were pumped into a storage tank, and then 50 gallons were added to the trailer?"
+/ options = ("x+y+50", 
+"x+y-50", 
+"-x-y-50", 
+"y-x+50"
+"x-y-50")
+/ optionvalues = ("0", "1", "2", "3", "4")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons q11_GRE11>
+/caption = "11. A college math professor informs her students that rather than curving final grades, she will replace each student's lowest test score with the next to lowest test score, and then re-average the test grades. If Leeza has test scores of 86, 92, 81, 64, and 83, by how many points does her final test average change based on the professor's policy?"
+/ options = ("3.4", 
+"3.5", 
+"3.6", 
+"3.7",
+"3.8")
+/ optionvalues = ("0", "1", "2", "3","4")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons q12_GRE12>
+/caption = "12. Rory left her home and drove straight to the airport at an average speed of 45mph. He returned home along the same route but traffic slowed him down and he only averaged 30mph on the return trip. If his total travel time was 2 hours and 30 minutes, how far is it, in miles, from Rory's house to the airport?"
+/ options = ("50", 
+"45", 
+"55", 
+"40",
+"60")
+/ optionvalues = ("0", "1", "2", "3","4")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons q13_GRE13>
+/caption = "13. If the longer leg of a right triangle has length 32 centimeters, and the measure of the angle that is adjacent to that leg is 30 degrees, which of the following represents the length, in centimeters, of the hypotenuse of the triangle?"
+/ options = ("32 x sin(30)","32 x cos(30)","32/sin(30)",
+"32/cos(30)","32 x sin(30) x cos(30)")
+/ optionvalues = ("0", "1", "2", "3","4")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons q14_GRE14>
+/caption = "14. If a + bi represents the complex number that results from multiplying 3+2i times 5-i, what is the value of a?"
+/ options = ("2","13","15","17","20")
+/ optionvalues = ("0", "1", "2", "3","4")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons q15_GRE15>
+/caption = "15. The percent increase from 5 to 12 is equal to the percent increase from 12 to what number?"
+/ options = ("16.8","18","19","26.6","28.8")
+/ optionvalues = ("0", "1", "2", "3","4")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+
+<radiobuttons qagitated>
+/caption = "Right now I am feeling agitated."
+/ options = ("16.8","18","19","26.6","28.8")
+/ optionvalues = ("0", "1", "2", "3","4")
+/ options = ("Not at all", "","","Somewhat","","","Extremely")
+/ optionvalues = ("0", "1", "2", "3","4","5","6")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons qanxious>
+/caption = "Right now I am feeling anxious."
+/ options = ("16.8","18","19","26.6","28.8")
+/ optionvalues = ("0", "1", "2", "3","4")
+/ options = ("Not at all", "","","Somewhat","","","Extremely")
+/ optionvalues = ("0", "1", "2", "3","4","5","6")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons qnervous>
+/caption = "Right now I am feeling nervous."
+/ options = ("16.8","18","19","26.6","28.8")
+/ optionvalues = ("0", "1", "2", "3","4")
+/ options = ("Not at all", "","","Somewhat","","","Extremely")
+/ optionvalues = ("0", "1", "2", "3","4","5","6")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons quneasy>
+/caption = "Right now I am feeling uneasy."
+/ options = ("16.8","18","19","26.6","28.8")
+/ optionvalues = ("0", "1", "2", "3","4")
+/ options = ("Not at all", "","","Somewhat","","","Extremely")
+/ optionvalues = ("0", "1", "2", "3","4","5","6")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons qworried>
+/caption = "Right now I am feeling worried."
+/ options = ("16.8","18","19","26.6","28.8")
+/ optionvalues = ("0", "1", "2", "3","4")
+/ options = ("Not at all", "","","Somewhat","","","Extremely")
+/ optionvalues = ("0", "1", "2", "3","4","5","6")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons qPE>
+/caption = "How well do you think you did on the math exam?"
+/ options = ("16.8","18","19","26.6","28.8")
+/ optionvalues = ("0", "1", "2", "3","4")
+/ options = ("Extremely Poorly", "","","About Average","","","Extremely Well")
+/ optionvalues = ("0", "1", "2", "3","4","5","6")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons q15PE>
+/caption = "Out of 15 problems how many do you think you got wrong?"
+/ options = ("16.8","18","19","26.6","28.8")
+/ optionvalues = ("0", "1", "2", "3","4")
+/ options = ("0","1","2","3","4","5","6","7","8",
+"9","10","11","12","13","14","15")
+/ optionvalues = ("0", "1", "2", "3","4","5","6","7","8","9","10","11","12","13","14","15")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons qability>
+/caption = "Please rate the extent to which you felt like you didn't have the ability to accurately solve the problems."
+/ options = ("16.8","18","19","26.6","28.8")
+/ optionvalues = ("0", "1", "2", "3","4")
+/ options = ("Not at all", "","","Somewhat","","","Extremely")
+/ optionvalues = ("0", "1", "2", "3","4","5","6")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons qconfidence>
+/caption = "Please rate the extent to which you felt like you weren't confident enough to accurately solve the problems."
+/ options = ("16.8","18","19","26.6","28.8")
+/ optionvalues = ("0", "1", "2", "3","4")
+/ options = ("Not at all", "","","Somewhat","","","Extremely")
+/ optionvalues = ("0", "1", "2", "3","4","5","6")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons qemo>
+/caption = "Please rate the extent to which your emotions interfered with your ability to accurately solve the problems."
+/ options = ("16.8","18","19","26.6","28.8")
+/ optionvalues = ("0", "1", "2", "3","4")
+/ options = ("Not at all", "","","Somewhat","","","Extremely")
+/ optionvalues = ("0", "1", "2", "3","4","5","6")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons qtime>
+/caption = "Please rate the extent to which you felt like you didn't have enough time to accurately solve the problems."
+/ options = ("16.8","18","19","26.6","28.8")
+/ optionvalues = ("0", "1", "2", "3","4")
+/ options = ("Not at all", "","","Somewhat","","","Extremely")
+/ optionvalues = ("0", "1", "2", "3","4","5","6")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+
+<radiobuttons qtest>
+/caption = "Please rate the extent to which you felt like the test was unfair and poorly designed."
+/ options = ("16.8","18","19","26.6","28.8")
+/ optionvalues = ("0", "1", "2", "3","4")
+/ options = ("Not at all", "","","Somewhat","","","Extremely")
+/ optionvalues = ("0", "1", "2", "3","4","5","6")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons qexternal>
+/caption = "Please rate the extent to which you felt external events in your life interfered with your ability to accurately solve the problems."
+/ options = ("16.8","18","19","26.6","28.8")
+/ optionvalues = ("0", "1", "2", "3","4")
+/ options = ("Not at all", "","","Somewhat","","","Extremely")
+/ optionvalues = ("0", "1", "2", "3","4","5","6")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+<radiobuttons qevaluator>
+/caption = "Please rate the extent to which you felt like the evaluator interfered with your ability to accurately solve the problems."
+/ options = ("16.8","18","19","26.6","28.8")
+/ optionvalues = ("0", "1", "2", "3","4")
+/ options = ("Not at all", "","","Somewhat","","","Extremely")
+/ optionvalues = ("0", "1", "2", "3","4","5","6")
+/required = true
+/orientation = vertical
+</radiobuttons>
+
+*******************************************************************************************************************
+*******************************************************************************************************************
+	Blocks
+*******************************************************************************************************************
+*******************************************************************************************************************
+<surveypage gender>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 2, 1)
+/ txcolor = black
+/questions = [1 = gender]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage calc>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 2, 1)
+/ txcolor = black
+/questions = [1 = calc]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage GRE1>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = q1_GRE1]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage GRE2>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = q2_GRE2]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage GRE3>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = q3_GRE3]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage GRE4>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = q4_GRE4]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage GRE5>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = q5_GRE5]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage GRE6>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = q6_GRE6]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage GRE7>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = q7_GRE7]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage GRE8>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = q8_GRE8]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage GRE9>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = q9_GRE9]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage GRE10>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = q10_GRE10]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage GRE11>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = q11_GRE11]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage GRE12>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = q12_GRE12]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage GRE13>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = q13_GRE13]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage GRE14>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = q14_GRE14]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage GRE15>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = q15_GRE15]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+
+<surveypage qagitated>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = qagitated]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage qanxious>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = qanxious]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage qnervous>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = qnervous]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage quneasy>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = quneasy]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage qworried>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = qworried]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage qPE>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = qPE]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage q15PE>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = q15PE]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage qability>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = qability]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage qconfidence>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = qconfidence]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage qemo>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = qemo]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage qtime>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = qtime]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage qtest>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = qtest]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage qexternal>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = qexternal]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage qevaluator>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = qevaluator]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage evap1>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = evap1]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+<surveypage evap2>
+/caption ="<%parameters.pageinstructions%>"
+/subcaption = " "
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
+/subcaptionfontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/itemfontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/questions = [1 = evap2]
+/showpagenumbers = false
+/showquestionnumbers = false
+</surveypage>
+
+
+<text blanks>  
+/ numitems = 3
+/ items = ("                              ", "                              ", "                              ")
+/ select = noreplace
+/ fontstyle = ("Arial", 7%)
+</text>
+
+<trial MaleFeedback>
+/stimulusframes = [1 = MaleFeedback]
+/timeout = 5
+</trial>
+
+<trial MaleWelcome>
+/stimulusframes = [1 = MaleWelcome]
+/timeout = 5
+</trial>
+
+
+<block intro>
+/ trials = [1 = manip1; 2 = intro; 3 = MaleWelcome; 4=intro2; 5=intro3; 6 = calc; 7 = gender]
+</block>
+
+<block GRE1>
+/ trials = [1 = GRE1]
+/ timeout = 80000
+/ bgstim = (video.MaleStart)
+</block>
+
+<block GRE2>
+/ trials = [1 = GRE2]
+/ timeout = 80000
+/ bgstim = (video.MaleFeedback)
+</block>
+
+
+<block GRE3>
+/ trials = [1 = GRE3]
+/ timeout = 80000
+/ bgstim = (video.MaleFeedback)
+</block>
+
+
+<block GRE4>
+/ trials = [1 = GRE4]
+/ timeout = 80000
+/ bgstim = (video.MaleFeedback)
+</block>
+
+<block GRE5>
+/ trials = [1 = GRE5]
+/ timeout = 80000
+/ bgstim = (video.MaleFeedback)
+</block>
+
+<block GRE6>
+/ trials = [1 = GRE6]
+/ timeout = 80000
+/ bgstim = (video.MaleFeedback)
+</block>
+
+<block GRE7>
+/ trials = [1 = GRE7]
+/ timeout = 80000
+/ bgstim = (video.MaleFeedback)
+</block>
+
+<block GRE8>
+/ trials = [1 = GRE8]
+/ timeout = 80000
+/ bgstim = (video.MaleFeedback)
+</block>
+
+<block GRE9>
+/ trials = [1 = GRE9]
+/ timeout = 80000
+/ bgstim = (video.MaleFeedback)
+</block>
+
+<block GRE10>
+/ trials = [1 = GRE10]
+/ timeout = 80000
+/ bgstim = (video.MaleFeedback)
+</block>
+
+<block GRE11>
+/ trials = [1 = GRE11]
+/ timeout = 80000
+/ bgstim = (video.MaleFeedback)
+</block>
+
+<block GRE12>
+/ trials = [1 = GRE12]
+/ timeout = 80000
+/ bgstim = (video.MaleFeedback)
+</block>
+
+
+<block GRE13>
+/ trials = [1 = GRE13]
+/ timeout = 80000
+/ bgstim = (video.MaleFeedback)
+</block>
+
+<block GRE14>
+/ trials = [1 = GRE14]
+/ timeout = 80000
+/ bgstim = (video.MaleFeedback)
+</block>
+
+
+<block GRE15>
+/ trials = [1 = GRE15]
+/ timeout = 80000
+/ bgstim = (video.MaleFeedback)
+</block>
+
+
+<block endsurvey>
+/ trials = [1 = ENDBREAK; 2 = Maththoughts; 3=surveytransition; 4=qagitated; 5=qanxious; 6=qnervous; 7=quneasy; 8=qworried; 9=qPE; 10=q15PE;
+11=qability; 12=qemo; 13=qtime; 14=qtest; 15=qexternal; 16=qconfidence; 17=qevaluator; 18=evap1; 19=evap2; 20=cont]
+</block>
+
+
+
+
+
+
+
+
+*******************************************************************************************************************
+*******************************************************************************************************************
+	SURVEY
+*******************************************************************************************************************
+*******************************************************************************************************************
+Notes:
+- presents the surveypages
+- to take pictures of each screen set /screencapture = true
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+*** EXPERIMENT  ****
+------------------------------------------------------------------------------------
+
+<expt>
+/ blocks = [1 = intro; 2=GRE1; 3=GRE2; 4=GRE3; 5=GRE4; 6=GRE5; 7=GRE6; 8=GRE7; 9=GRE8; 10=GRE9; 11=GRE10; 12=GRE11; 13=GRE12;
+14=GRE13; 15=GRE14; 16=GRE15; 17=endsurvey]
+</expt>
+
+
+
+
+*******************************************************************************************************************
+												End of File
+*******************************************************************************************************************
